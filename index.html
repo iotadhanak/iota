@@ -187,34 +187,6 @@
 
     <!-- LeadMark js -->
     <script src="assets/js/leadmark.js"></script>
-<script>
-    // Get the user's country code
-   var apiKey = "YOUR_API_KEY_HERE";
 
-// Make a request to the geoplugin.net API to get the user's country code
-var requestUrl = "http://www.geoplugin.net/json.gp?key=" + apiKey;
-
-// Send the request and process the response
-var xhr = new XMLHttpRequest();
-xhr.open("GET", requestUrl);
-xhr.onload = function() {
-  if (xhr.status === 200) {
-    // Parse the response JSON
-    var response = JSON.parse(xhr.responseText);
-
-    // Get the country code from the response
-    var countryCode = response.geoplugin_countryCode;
-
-    // If the user is not in India, update the greeting text
-    if (countryCode !== "IN") {
-      document.getElementById("price99").innerHTML = "300";
-        document.getElementById("price149").innerHTML = "400";
-        document.getElementById("price199").innerHTML = "500";
-    }
-  }
-};
-xhr.send();
-    }
-  </script>
 </body>
 </html>
