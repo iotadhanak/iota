@@ -226,7 +226,7 @@
       var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 // Use the time zone to determine the user's location
-if (timeZone === "Asia/Kolkata") {
+if (timeZone === "Asia/Kolkata" || timeZone === "Asia/Calcutta" || timeZone === "Asia/Katmandu" || timeZone === "Asia/Dhaka" || timeZone === "Asia/Thimphu" || timeZone === "Asia/Kabul") {
   // The user is in India
    console.log("india");
 } else {
