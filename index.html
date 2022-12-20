@@ -240,10 +240,11 @@
         var country = data.results[0].components.country;
 
         // If the user is not in India, modify the HTML
-        if (country == "India") {
+        if (country !== "India") {
           // Modify the HTML here (e.g. remove or replace content specific to India)
           var price1 = document.getElementById("price1");
             price1.innerHTML = "UAE Price";
+           console.log(country);
         }
       }
     };
