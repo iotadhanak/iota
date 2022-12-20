@@ -222,7 +222,40 @@
 
     <!-- LeadMark js -->
     <script src="assets/js/leadmark.js"></script>
-      <script>
+     <script>
+         // Use the fetch() method to get the user's IP address
+fetch("https://api.ipify.org?format=json")
+  .then(response => response.json())
+  .then(data => {
+    // Get the user's IP address from the response
+    var ip = data.ip;
+
+    // Use the IP geolocation API to lookup the user's location
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api.ipgeolocation.io/ipgeo?apiKey=a2b3717f683e46759cea675656cdb3da&ip=" + ip);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        // Parse the response from the API
+        var data = JSON.parse(xhr.responseText);
+
+        // Get the user's country from the response
+        var country = data.country_code;
+
+        // If the user is not in India, modify the HTML
+        if (country !== "IN") {
+          // Modify the HTML here (e.g. remove or replace content specific to India)
+        }
+      }
+    };
+    xhr.send();
+  });
+                
+                        
+                                       
+                                       
+     </script
+      <!--
+                            <script>
   // Use the Geolocation API to get the user's latitude and longitude
   navigator.geolocation.getCurrentPosition(function(position) {
     var latitude = position.coords.latitude;
@@ -253,7 +286,7 @@
     xhr.send();
   });
 </script>
-
+-->
 
 </body>
 </html>
