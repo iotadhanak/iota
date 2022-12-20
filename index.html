@@ -223,41 +223,22 @@
     <!-- LeadMark js -->
     <script src="assets/js/leadmark.js"></script>
      <script>
-         // Use the fetch() method to get the user's IP address
-fetch("https://api.ipify.org?format=json")
-  .then(response => response.json())
-  .then(data => {
-    // Get the user's IP address from the response
-    var ip = data.ip;
+      var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    // Use the IP geolocation API to lookup the user's location
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://api.ipgeolocation.io/ipgeo?apiKey=a2b3717f683e46759cea675656cdb3da&ip=" + ip);
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        // Parse the response from the API
-        var data = JSON.parse(xhr.responseText);
-
-        // Get the user's country from the response
-        var country = data.country_code;
-         console.log(country);
-        // If the user is not in India, modify the HTML
-        if (country !== "IN") {
-          // Modify the HTML here (e.g. remove or replace content specific to India)
-             var price1 = document.getElementById("price1");
+// Use the time zone to determine the user's location
+if (timeZone === "Asia/Kolkata") {
+  // The user is in India
+   console.log("india");
+} else {
+                      console.log("outside");
+   var price1 = document.getElementById("price1");
              var price2 = document.getElementById("price2");
              var price3 = document.getElementById("price3");                                             
             price1.innerHTML = "price of 30 AED for one test";
             price2.innerHTML = "price of 40 AED for two tests";
-            price3.innerHTML = "price of 50 AED for three test";   
-                                                               
-        }
-      }
-    };
-    xhr.send();
-  });
-                
-                        
+            price3.innerHTML = "price of 50 AED for three test"; 
+} 
+                                                         
                                        
                                        
      </script
