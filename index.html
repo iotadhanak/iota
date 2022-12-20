@@ -22,17 +22,7 @@
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
     <!-- Bootstrap + LeadMark main styles -->
     <link rel="stylesheet" href="assets/css/leadmark.css">
-     <script>
-        // Check the value of the "location" meta tag
-        var location = document.querySelector('meta[name=location]').content;
-      
-        // If the user is not in India, modify the HTML
-        if (location == "India") {
-          // Modify the HTML here (e.g. remove or replace content specific to India)
-          price1 = document.getElementById("price1");
-          price1.innerHTML ="UAE Price";
-        }
-      </script>
+   
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
@@ -233,7 +223,19 @@
 
     <!-- LeadMark js -->
     <script src="assets/js/leadmark.js"></script>
-
+      <script>
+        // Check the value of the "location" meta tag
+        var location = document.querySelector('meta[name=location]').content;
+        console.log(location);
+        // If the user is not in India, modify the HTML
+        if (location !== "India") {
+          // Modify the HTML here (e.g. remove or replace content specific to India)
+          
+          price1 = document.getElementById("price1");
+          
+          price1.innerHTML ="UAE Price";
+        }
+      </script>
 
 
 </body>
