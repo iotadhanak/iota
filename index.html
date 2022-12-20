@@ -244,6 +244,12 @@ fetch("https://api.ipify.org?format=json")
         // If the user is not in India, modify the HTML
         if (country !== "IN") {
           // Modify the HTML here (e.g. remove or replace content specific to India)
+             var price1 = document.getElementById("price1");
+             var price2 = document.getElementById("price2");
+             var price3 = document.getElementById("price3");                                             
+            price1.innerHTML = "price of 30 AED for one test";
+            price2.innerHTML = "price of 40 AED for two tests";
+            price3.innerHTML = "price of 50 AED for three test";   
         }
       }
     };
