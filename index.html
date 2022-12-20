@@ -222,7 +222,34 @@
 
     <!-- LeadMark js -->
     <script src="assets/js/leadmark.js"></script>
-      
+      <script>
+  // Use the Geolocation API to get the user's latitude and longitude
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    // Use the OpenCage Geocoding API to lookup the user's country or region
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api.opencagedata.com/geocode/v1/json?q=" + latitude + "+" + longitude + "&key=YOUR_API_KEY");
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        // Parse the response from the API
+        var data = JSON.parse(xhr.responseText);
+
+        // Get the user's country or region from the response
+        var country = data.results[0].components.country;
+
+        // If the user is not in India, modify the HTML
+        if (country == "India") {
+          // Modify the HTML here (e.g. remove or replace content specific to India)
+          var price1 = document.getElementById("price1");
+            price1.innerHTML = "UAE Price";
+        }
+      }
+    };
+    xhr.send();
+  });
+</script>
 
 
 </body>
